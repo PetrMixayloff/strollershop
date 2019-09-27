@@ -1,0 +1,185 @@
+.container {
+    background-color: #f8f8f8;
+    font-size: 1em;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+ul.menu > li {
+    list-style-type: none;
+}
+
+.logo {
+    float: left;
+    margin-left: 25px;
+}
+
+.header {
+    height: 50px;
+    border-bottom: 2px solid black;
+}
+
+.menu {
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 10px;
+}
+.dropdown-menu{
+    position:absolute;
+    z-index:1000;
+    display:none;
+    text-align:left;
+    list-style:none;
+    background-color:#fff;
+    -webkit-background-clip:padding-box;
+    background-clip:padding-box;
+    border:1px solid #ccc;
+    border:1px solid rgba(0,0,0,.15);
+    border-radius:4px;
+    -webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);
+    box-shadow:0 6px 12px rgba(0,0,0,.175);
+    float:left;
+    padding:5px 0;
+    margin:2px 0 0;
+}
+
+.dropdown-menu li a{
+    text-decoration: none;
+    color: blueviolet;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.dropdown-menu li a:hover{
+    color: blue;
+}
+
+ul li:nth-child(5):hover .dropdown-menu {
+    display: block;
+}
+ul.menu > li > a {
+    text-decoration: none;
+    color: blueviolet;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 10px;
+}
+
+ul.menu > li > a:hover {
+    color: blue;
+}
+
+.description {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;
+}
+
+.short-description {
+    overflow: hidden;
+    padding-left: 20px;
+}
+.buy{
+    height: 25px;
+    width: 80px;
+}
+.buy:hover{
+    background-color: darkgray;
+}
+.buy:active{
+    background-color: darkgray;
+}
+
+.full-description {
+    clear: both;
+}
+
+.short {
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+
+.full {
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.char {
+    color: dimgrey;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.input {
+    height: 18px;
+    width: 100px;
+    margin: 5px;
+    color: blue;
+    text-transform: capitalize;
+}
+
+.input-email {
+    height: 18px;
+    width: 100px;
+    margin: 5px;
+    color: blue;
+}
+
+.input-email:focus {
+    background-color: azure;
+    color: black;
+}
+
+.product-view {
+    border: 2px solid black;
+    float: left;
+}
+
+.product-view img{
+    width: 350px;
+}
+.product-view:hover {
+    border: 2px solid transparent;
+    float: left;
+}
+
+.first-letter:first-letter {
+    font-size: 30px;
+    font-family: serif;
+    font-style: normal;
+}
+
+.footer {
+    border-top: 2px solid black;
+    height: 50px;
+    background-color: beige;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+}
+.catalog{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.map{
+    width: 100%;
+    height: 374px;
+}
+
+.category_record.not_active{
+    opacity: 0.5;
+}
+

@@ -1,0 +1,26 @@
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
+
+{% block main %}
+<div class="container">
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+
+    <div>
+        <img src="/media/{{ product.image }}"
+             alt="{{ product.short_desc }}" width="250px">
+    </div>
+
+    <div class="description">
+        <h3 class="big-bold">{{ product.name }}</h3>
+        <br>
+        <p class="price"> {{ product.price }} <span>руб</span></p>
+        <a href="{% url 'add' product.pk %}">
+            заказать
+            <i aria-hidden="true" class="fa fa-chevron-right"></i>
+        </a>
+        <div class="description-text">
+            {{ product.description }}
+        </div>
+    </div>
+</div>
+{% endblock %}

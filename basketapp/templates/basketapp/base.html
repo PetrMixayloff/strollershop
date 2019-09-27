@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title|title }}</title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+    {% block js %}
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/basket_scripts.js' %}"></script>
+    {% endblock %}
+
+</head>
+<body>
+
+
+{% block main %}
+{% endblock %}
+
+
+</body>
+</html>

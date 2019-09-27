@@ -1,0 +1,23 @@
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
+
+{% block main %}
+<div class="container">
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+    <h3>Каталог</h3>
+    <div class="catalog">
+        <a href="{% url 'strollers' %}">
+            <img src="{% static 'img/Strollers.jpg' %}" alt="Прогулочные коляски" width="200px"><br> Прогулочные коляски</a>
+        <br>
+        <a href="{% url 'chears' %}">
+            <img src="{% static 'img/Chears.jpg' %}" alt="Yoya Plus 3 Красная на черной раме" width="200px"><br>
+            Стульчики для кормления </a> <br>
+        <a href="{% url 'carseats' %}">
+            <img src="{% static 'img/Carseats.jpg' %}" alt="Yoya Plus 3 Звезды на черной раме" width="200px"><br>
+            Автокресла </a> <br>
+    </div>
+    <div class="footer">
+        <span> &copy; Все права защищены</span>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
+
+{% block main %}
+<div class="container">
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+    <h2>Прогулочные коляски</h2>
+    <div class="catalog">
+        {% for p in product %}
+        <a href="{% url 'product' p.pk %}">
+            <img src="/media/{{ p.image }}" alt="{{ p.name }}" width="200px"><br>
+            <h5>{{ p.short_desc }}</h5><br>
+            Подробнее</a> <br>
+        {% endfor %}
+    </div>
+
+    <div class="footer">
+        <span> &copy; Все права защищены</span>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title|title }}</title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+<div class="container">
+    <h1>Вход в систему</h1>
+
+
+    {% block main %}
+    {% endblock %}
+</div>
+
+
+</body>
+</html>

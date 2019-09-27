@@ -1,0 +1,32 @@
+[
+    {
+        "category": "Прогулочные коляски",
+        "name": "Yoya Plus 3 Серая на черной раме",
+        "url": "black_grey",
+        "image": "products_images/Black_grey_1.jpg",
+        "short_desc": "Легкая и удобная прогулочная коляска",
+        "description": "Для детей от 6 мес до 3-х лет",
+        "price": "7900",
+        "quantity": "2"
+    },
+    {
+        "category": "Прогулочные коляски",
+        "name": "Yoya Plus 3 Красная на черной раме",
+        "url": "black_red",
+        "image": "products_images/Black_red_1.jpg",
+        "short_desc": "Легкая и удобная прогулочная коляска",
+        "description": "Для детей от 6 мес до 3-х лет",
+        "price": "7900",
+        "quantity": "2"
+    },
+    {
+        "category": "Прогулочные коляски",
+        "name": "Yoya Plus 3 Звезды на черной раме",
+        "url": "black_stars",
+        "image": "products_images/Black_stars_1.jpg",
+        "short_desc": "Легкая и удобная прогулочная коляска",
+        "description": "Для детей от 6 мес до 3-х лет",
+        "price": "7900",
+        "quantity": "2"
+    }
+]
