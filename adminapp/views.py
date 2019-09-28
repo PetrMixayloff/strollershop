@@ -9,6 +9,9 @@ from django.views.generic.list import ListView
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
+from django.dispatch import receiver
+from django.db.models.signals import pre_save
+from django.db import connection
 
 class UsersListView(ListView):
     model = ShopUser
@@ -33,33 +36,47 @@ class ProductCategoryCreateView(CreateView):
         context['title'] = 'категории/создание'
         return context
 
+def db_profile_by_type(prefix, type, queries):
+    update_queries = list(filter(lambda x: type in x['sql'], queries))
+    print(f'db_profile {type} for {prefix}:')
+    [print(query['sql']) for query in update_queries]
 
-class ProductCategoryUpdateView(UpdateView):
-    model = ProductCategory
-    template_name = 'adminapp/category_update.html'
-    success_url = reverse_lazy('admin:categories')
-    form_class = ProductCategoryEditForm
+@receiver(pre_save, sender=ProductCategory)
+def product_is_active_update_productcategory_save(sender, instance, **kwargs):
+    if instance.pk:
+        if instance.is_active:
+            instance.product_set.update(is_active=True)
+        else:
+            instance.product_set.update(is_active=False)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'категории/редактирование'
-        return context
+        db_profile_by_type(sender, 'UPDATE', connection.queries)
+    
+#class ProductCategoryUpdateView(UpdateView):
+#     model = ProductCategory
+#    template_name = 'adminapp/category_update.html'
+#    success_url = reverse_lazy('admin:categories')
+#    form_class = ProductCategoryEditForm
+#
+#    def get_context_data(self, **kwargs):
+#        context = super().get_context_data(**kwargs)
+#        context['title'] = 'категории/редактирование'
+#        return context
 
-class ProductCategoryDeleteView(DeleteView):
-    model = ProductCategory
-    template_name = 'adminapp/category_delete.html'
-    success_url = reverse_lazy('admin:categories')
-
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        self.object.is_active = False
-        self.object.save()
-        return HttpResponseRedirect(self.get_success_url())
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'категории/удаление'
-        return context
+#class ProductCategoryDeleteView(DeleteView):
+#    model = ProductCategory
+#    template_name = 'adminapp/category_delete.html'
+#    success_url = reverse_lazy('admin:categories')
+#
+#    def delete(self, request, *args, **kwargs):
+#        self.object = self.get_object()
+#        self.object.is_active = False
+#        self.object.save()
+#        return HttpResponseRedirect(self.get_success_url())
+#
+#    def get_context_data(self, **kwargs):
+#        context = super().get_context_data(**kwargs)
+#        context['title'] = 'категории/удаление'
+#        return context
 
 class ProductDetailView(DetailView):
     model = Product
